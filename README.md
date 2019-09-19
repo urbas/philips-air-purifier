@@ -9,8 +9,9 @@ pip install philips-air-purifier
 ## Usage
 Get the status of the air purifier:
 ```python
-from philips_air_purifier.status import get_status
-status = get_status(air_purifier_host="192.168.1.12")
+from philips_air_purifier import status
+status.put_status(air_purifier_host="192.168.1.12", status={"pwr": "1"})
+current_status = status.get_status(air_purifier_host="192.168.1.12")
 ```
 
 ## Deploying to PyPi
