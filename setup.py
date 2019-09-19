@@ -27,10 +27,10 @@ setup(
     long_description_content_type="text/markdown",
     long_description=long_description,
     name="philips-air-purifier",
-    packages=find_packages(include=["philips_air_purifier"]),
+    packages=find_packages(include=["philips_air_purifier"], exclude=["tests"]),
     setup_requires=SETUP_REQUIREMENTS,
     test_suite="tests",
     tests_require=TEST_REQUIREMENTS,
     url="https://github.com/urbas/philips-air-purifier",
-    version="0.0.1",
+    version="0.0.2",
 )

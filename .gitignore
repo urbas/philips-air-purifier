@@ -5,6 +5,7 @@ __pycache__/
 .venv/
 *.egg-info/
 *.eggs/
+build/
 dist/
 htmlcov/
 test-results/
