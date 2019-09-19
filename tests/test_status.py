@@ -7,6 +7,13 @@ def test_get_status():
         assert status_responses.SLEEP_STATUS == status.get_status(session.host)
 
 
+def test_put_status():
+    with mock_purifier.MockPurifier() as session:
+        assert "0" == status.get_status(session.host)["pwr"]
+        status.put_status(session.host, {"pwr": "1"})
+        assert "1" == status.get_status(session.host)["pwr"]
+
+
 def test_fan_speed_to_int():
     assert 0 == status.fan_speed_to_int(status_responses.SLEEP_STATUS)
     assert 1 == status.fan_speed_to_int(status_responses.SPEED_1_STATUS)
