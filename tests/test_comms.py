@@ -1,6 +1,6 @@
 import os
 from philips_air_purifier import comms
-from test.mock_purifier import MockPurifier
+from tests.mock_purifier import MockPurifier
 
 
 def test_get_key():

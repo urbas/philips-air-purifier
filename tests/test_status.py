@@ -1,5 +1,5 @@
 from philips_air_purifier import status
-from test import status_responses, mock_purifier
+from tests import status_responses, mock_purifier
 
 
 def test_get_status():
