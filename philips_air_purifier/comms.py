@@ -60,8 +60,7 @@ def dh_decrypt(data, key):
 
 
 def dh_encrypt(str_data, key):
-    # TODO: Check whether we can omit the two spaces in front of the string data
-    # NB: adding two spaces in front of the string data because the air purifier
+    # NB: adding two bytes in front of the string data because the air purifier
     # seems to do that too
     padded_data = pad(("  " + str_data).encode("ascii"), 16, style="pkcs7")
     return base64.b64encode(aes_encrypt(padded_data, key))
