@@ -1,4 +1,4 @@
-# Philips Air Purifier Client API [![Build](https://travis-ci.com/urbas/philips-air-purifier.svg?branch=master)](https://travis-ci.com/urbas/philips-air-purifier) [![pypi](https://badge.fury.io/py/philips-air-purifier.svg)](https://pypi.org/project/philips-air-purifier/)
+# Philips Air Purifier Client API [![Build](https://travis-ci.org/urbas/philips-air-purifier.svg?branch=master)](https://travis-ci.org/urbas/philips-air-purifier) [![pypi](https://badge.fury.io/py/philips-air-purifier.svg)](https://pypi.org/project/philips-air-purifier/)
 Python API for monitoring and controlling Philips air purifiers.
 
 ## Installation
