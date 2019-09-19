@@ -1,11 +1,18 @@
 language: python
 python:
-  - "3.6"
-  - "3.7"
+- '3.6'
+- '3.7'
 install:
-  - pip install -e .
-  - pip install -r requirements_dev.txt
+- pip install -e .
+- pip install -r requirements_dev.txt
 script:
-  - black --check setup.py test philips_air_purifier
-  - flake8 setup.py test philips_air_purifier
-  - pytest
+- black --check setup.py tests philips_air_purifier
+- flake8 setup.py tests philips_air_purifier
+- pytest
+deploy:
+  provider: pypi
+  user: urbas
+  password:
+    secure: AIwD/WvNi2ibaI7condoaBOMw8QLAhTojSdLAEuBDtES+nxJ8r8yhN8N6dH9Y61X6i7aH6zc9ysuSsaFFt6YarqeCHVtq4Cj9heu/LotPpDpdlh6b1EexUPq1XMEBlfFVa32xHKKbV4oom/iJtf2saeIDPRULLy/IA6GXd3o4NWX//xe63U8sx2b6qqrI/jq3RqddtlYqLxi90YzJWZyeLs3QxiAWEkwZ7DYEl3uPLJQmpw7u5wC+jdlp4qimafz+eTtKT68PvZpZeWCycYUYVj3VvSTMDM+223QU/NDDVOILZhF2qlWa1nizwn8Nf8KJi5kRoZ2zoEv4sGOnl670HZ1fBmV0ITlJuXFXcVZEBaolDR0nVflhgXiQKuJ1EN1SP2c7pQ4y9R8e0ZfPwcM7zsXznOrastJefsw+8KaPDPBPUUQHIMDAlunaJ8SXVsh0VoXeuGM8AYpyHbhzZZFT2lNFRPDsBVCd3QbVF6q3hgahZ1RFigol5HCd7uVL7LMlru462wQNleYxpUletvK6auBMetCiRBVUFvrZT4Zubu1P0etFwgzjX1vkv1iZaNiWtpSBkhGMkz0ao7KPC8W9raxyeVSdZewn/NQqeZEwGvacer516P37nCXfQ0RFCTH3O+KMoHZWcK2hkL8r18k1H+AYPaRQkMjS66eoUz8kT8=
+  on:
+    tags: true
