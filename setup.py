@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-REQUIREMENTS = ["pycryptodome==3.9.0", "requests==2.22.0"]
+REQUIREMENTS = ["pycryptodome>=3.0.0", "requests>=2.0.0"]
 
 SETUP_REQUIREMENTS = ["pytest-runner"]
 
