@@ -1,6 +1,9 @@
 # Philips Air Purifier Client API [![Build](https://travis-ci.org/urbas/philips-air-purifier.svg?branch=master)](https://travis-ci.org/urbas/philips-air-purifier) [![pypi](https://badge.fury.io/py/philips-air-purifier.svg)](https://pypi.org/project/philips-air-purifier/)
 Python API for monitoring and controlling Philips air purifiers.
 
+Tested with:
+- Philips AC3256/60
+
 ## Installation
 ```
 pip install philips-air-purifier
@@ -14,9 +17,6 @@ status.put_status(air_purifier_host="192.168.1.12", status={"pwr": "1"})
 current_status = status.get_status(air_purifier_host="192.168.1.12")
 ```
 
-## Deploying to PyPi
-```bash
-pip install setuptools wheel
-python setup.py sdist bdist_wheel
-twine upload dist/*
-```
+## TODO before 1.0.0
+- session-based API (to avoid the need to repeat DH key exchange for every call--to support more complicated use cases)
+- custom HTTP request API (to support features not covered by the functional and session-based API)
