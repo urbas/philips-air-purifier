@@ -32,5 +32,5 @@ setup(
     test_suite="tests",
     tests_require=TEST_REQUIREMENTS,
     url="https://github.com/urbas/philips-air-purifier",
-    version="0.0.3",
+    version="0.0.4",
 )
