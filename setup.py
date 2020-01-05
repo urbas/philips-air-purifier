@@ -11,6 +11,9 @@ TEST_REQUIREMENTS = ["pytest"]
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open("CHANGELOG.md", "r") as fh:
+    long_description += "\n\n" + fh.read()
+
 setup(
     author_email="matej.urbas@gmail.com",
     author="Matej Urbas",
