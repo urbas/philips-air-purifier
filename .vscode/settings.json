@@ -11,4 +11,23 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.formatting.provider": "black",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/*.egg-info": true,
+    "**/*.pyc": true,
+    "**/__pycache__": true,
+    ".eggs": true,
+    "test-results": true,
+    ".pytest_cache": true,
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.venv/**": true,
+    "**/*.egg-info": true,
+    "**/*.pyc": true,
+    "**/__pycache__": true
+  }
 }
