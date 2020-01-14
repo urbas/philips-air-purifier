@@ -9,7 +9,7 @@ install:
 script:
 - black --check setup.py tests philips_air_purifier
 - flake8 setup.py tests philips_air_purifier
-- pytest
+- pytest tests
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
