@@ -2,20 +2,23 @@ import json
 import os
 from httmock import urlmatch, HTTMock
 from philips_air_purifier import comms
-from tests import status_responses
+from tests import status_responses, wifi_responses
 
 _MOCK_PURIFIER_HOST = "192.168.1.12"
 
 
 class MockPurifier(HTTMock):
-    def __init__(self, status=None):
+    def __init__(self, status=None, wifi=None):
         self.session_key = os.urandom(16)
         self.private_key, self.public_key = comms.create_dh_keypair()
         self.host = _MOCK_PURIFIER_HOST
         self.status = status or status_responses.OFF_STATUS.copy()
+        self.wifi = wifi or wifi_responses.UNCONFIGURED_WIFI.copy()
 
         super(MockPurifier, self).__init__(
             self._security_api_handler,
+            self._wifi_get_handler,
+            self._wifi_put_handler,
             self._status_get_handler,
             self._status_put_handler,
         )
@@ -38,6 +41,16 @@ class MockPurifier(HTTMock):
                 "hellman": format(self.public_key, "x"),
             }
         )
+
+    @urlmatch(netloc=_MOCK_PURIFIER_HOST, path="/di/v1/products/0/wifi", method="GET")
+    def _wifi_get_handler(self, url, request):
+        return comms.dh_encrypt(json.dumps(self.wifi), self.session_key)
+
+    @urlmatch(netloc=_MOCK_PURIFIER_HOST, path="/di/v1/products/0/wifi", method="PUT")
+    def _wifi_put_handler(self, url, request):
+        new_wifi = json.loads(comms.dh_decrypt(request.body, self.session_key))
+        self.wifi = wifi_responses.configured_wifi(new_wifi["ssid"])
+        return comms.dh_encrypt(json.dumps(self.wifi), self.session_key)
 
     @urlmatch(netloc=_MOCK_PURIFIER_HOST, path="/di/v1/products/1/air", method="GET")
     def _status_get_handler(self, url, request):
